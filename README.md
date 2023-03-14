@@ -1,5 +1,5 @@
 # cat_mouse_tracker
-A cat mouse tracker with [Rive](https://rive.app/) animates and State machine.
+A cat mouse tracker made with flutter for programming and rive for animations.
 
 ![Example](./README/example.gif)
 
