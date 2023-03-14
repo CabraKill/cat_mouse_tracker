@@ -1,7 +1,8 @@
 # cat_mouse_tracker
+A cat mouse tracker with [Rive](https://rive.app/) animates and State machine.
+
 ![Example](./README/example.gif)
 
-A cat mouse tracker with [Rive](https://rive.app/) animates and State machine.
 
 
 ## Animation ✏️
