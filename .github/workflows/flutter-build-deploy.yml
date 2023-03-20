@@ -16,9 +16,6 @@ jobs:
     - name: checkout deploy branch
       run: |
         git fetch --all
-        git checkout -b deploy origin/deploy
-        git reset --hard origin/main
-        git pull
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
 
@@ -41,4 +38,4 @@ jobs:
       run: |
         git add .
         git commit -m "update github pages"
-        git push
+        git push origin deploy --force
