@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: checkout deploy branch
+      run: |
+        git checkout deploy
+        git status
+
     - uses: actions/checkout@v2
 
     - name: Set up Flutter
@@ -28,7 +33,6 @@ jobs:
     
     - name: Deploy
       run: |
-        cd build/web
         git status
         git add --all
         git commit -m "update github pages"
