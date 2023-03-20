@@ -9,12 +9,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
+
     - name: checkout deploy branch
       run: |
         git checkout deploy
-        git status
-
-    - uses: actions/checkout@v2
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
 
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
