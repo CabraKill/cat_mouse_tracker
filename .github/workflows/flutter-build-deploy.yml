@@ -1,4 +1,4 @@
-name: Flutter Build and Deploy
+name: Flutter Build and Deploy - Web
 
 on:
   push:
