@@ -68,8 +68,8 @@ class _HomePageState extends State<HomePage> {
     final screenHeight = MediaQuery.of(context).size.height;
     var dyLocation = event.localPosition.dy;
     final dyFactor = (dyLocation / screenHeight);
-    var offset = 0.66;
-    var dyNotNormalized = (dyFactor - offset) / (1 - offset);
+    var offset = - 0.55;
+    var dyNotNormalized = (dyFactor + offset) / (1 + offset);
     var dy = dyNotNormalized < 0 ? 0.0 : dyNotNormalized * 100;
     return dy;
   }
