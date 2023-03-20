@@ -2,19 +2,16 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({
+class HomePage extends StatefulWidget {
+  const HomePage({
     super.key,
-    required this.title,
   });
 
-  final String title;
-
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   late StateMachineController _controller;
   SMINumber? _vertical;
   SMINumber? _horizontal;
@@ -23,7 +20,6 @@ class _MyHomePageState extends State<MyHomePage> {
     //TODO update name
     var ctrl = StateMachineController.fromArtboard(art, 'State Machine 1')
         as StateMachineController;
-    ctrl.isActive = false;
     art.addController(ctrl);
     setState(() {
       _controller = ctrl;
@@ -50,25 +46,13 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        // Play/Pause the state machine
-        onPressed: _onPressed,
-        tooltip: 'Play/Pause',
-        child: const Icon(Icons.arrow_upward),
-      ),
     );
-  }
-
-  void _onPressed() {
-    _controller.isActive
-        ? _controller.isActive = false
-        : _controller.isActive = true;
   }
 
   void _onHover(PointerHoverEvent event) {
     final dx = _getXInputFromMouse(event);
     final dy = _getYInputFromMouse(event);
-    
+
     _vertical?.change(dy);
     _horizontal?.change(dx);
   }
