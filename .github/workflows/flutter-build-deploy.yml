@@ -17,6 +17,7 @@ jobs:
       run: |
         git fetch --all
         git checkout -b deploy origin/deploy
+        git pull origin main
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
 
