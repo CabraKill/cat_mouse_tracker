@@ -13,7 +13,7 @@ jobs:
 
     - name: checkout deploy branch
       run: |
-        git checkout -b deploy
+        git checkout -t origin/deploy
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
 
