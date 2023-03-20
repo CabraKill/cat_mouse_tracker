@@ -10,6 +10,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.TOKEN }}
 
     - name: checkout deploy branch
       run: |
@@ -36,6 +38,5 @@ jobs:
     - name: Deploy
       run: |
         git status
-        git add --all
-        git commit -m "update github pages"
+        git commit -a -m "update github pages"
         git push
