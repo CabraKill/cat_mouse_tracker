@@ -1,3 +1,4 @@
+import 'package:cat_mouse_tracker/presentation/pages/home/widgets/user_profile_floating_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
@@ -32,9 +33,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: MouseRegion(
-        // Update the state machine's inputs with hover
         onHover: _onHover,
-
         child: Stack(
           children: [
             RiveAnimation.asset(
@@ -46,6 +45,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+      floatingActionButton: const UserProfileFloatingButton(),
     );
   }
 
@@ -68,9 +68,11 @@ class _HomePageState extends State<HomePage> {
     final screenHeight = MediaQuery.of(context).size.height;
     var dyLocation = event.localPosition.dy;
     final dyFactor = (dyLocation / screenHeight);
-    var offset = - 0.55;
+    var offset = -0.55;
     var dyNotNormalized = (dyFactor + offset) / (1 + offset);
     var dy = dyNotNormalized < 0 ? 0.0 : dyNotNormalized * 100;
     return dy;
   }
 }
+
+

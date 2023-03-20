@@ -19,3 +19,11 @@ The animations were made using Rive. It's a technology that allows us create int
 
 ## About the inspiration 🐈‍⬛
 The cat was inspired in Espelunca restaurant mascot with lovely faces and form. You can check them out in @vamodeespelunca Instagram.
+
+## Web build
+
+To host it in GitHub pages, with the current configuration, it's necessary to build the web version with a specific path for href. To do that, run the following command:
+
+```bash
+flutter build web --base-href "/cat_mouse_tracker/"
+```

@@ -1,4 +1,4 @@
-import 'package:cat_mouse_tracker/home.dart';
+import 'package:cat_mouse_tracker/presentation/pages/home/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
