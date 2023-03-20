@@ -37,5 +37,6 @@ jobs:
     
     - name: Deploy
       run: |
-        git commit -am "update github pages"
+        git add .
+        git commit -m "update github pages"
         git push
