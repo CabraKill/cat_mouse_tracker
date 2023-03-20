@@ -38,4 +38,4 @@ jobs:
       run: |
         git add .
         git commit -m "update github pages"
-        git push origin deploy --force
+        git push origin main:deploy
