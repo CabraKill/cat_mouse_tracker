@@ -18,7 +18,6 @@ class _HomePageState extends State<HomePage> {
   SMINumber? _horizontal;
 
   void _onInit(Artboard art) {
-    //TODO update name
     var ctrl = StateMachineController.fromArtboard(art, 'State Machine 1')
         as StateMachineController;
     art.addController(ctrl);
