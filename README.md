@@ -3,6 +3,8 @@ A cat mouse tracker made with flutter for programming and rive for animations.
 
 ![Example](./README/example.gif)
 
+**Test in it [here](https://cabrakill.github.io/cat_mouse_tracker/)**
+
 
 
 ## Animation ✏️
