@@ -5,8 +5,12 @@ A cat mouse tracker made with flutter for programming and rive for animations.
 
 ![Example](./README/example.gif)
 
-**Test in it [here](https://cabrakill.github.io/cat_mouse_tracker/)**
+## GitHub Pages 🖥️
+This project is hosted in GitHub Pages. You can check it out [here](https://cabrakill.github.io/cat_mouse_tracker/).
 
+## Github Actions ⏯️
+The project is configured to build and deploy the web version in GitHub Pages. The configuration is in the .github/workflows folder.
+* [build web workflow](https://github.com/CabraKill/cat_mouse_tracker/actions/workflows/flutter-build-deploy.yml)
 
 ## Animation ✏️
 
@@ -21,7 +25,7 @@ The animations were made using Rive. It's a technology that allows us create int
 ## About the inspiration 🐈‍⬛
 The cat was inspired in Espelunca restaurant mascot with lovely faces and form. You can check them out in @vamodeespelunca Instagram.
 
-## Web build
+## Web build 👨‍💻
 
 To host it in GitHub pages, with the current configuration, it's necessary to build the web version with a specific path for href. To do that, run the following command:
 
