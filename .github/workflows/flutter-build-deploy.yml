@@ -2,40 +2,91 @@ name: Flutter Build and Deploy - Web
 
 on:
   push:
-    branches: [ main ]
+    branches: [$default-branch]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  BUILD_PATH: "." # default value when not using subfolders
+  # BUILD_PATH: subfolder
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.TOKEN }}
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.TOKEN }}
 
-    - name: checkout deploy branch
-      run: |
-        git fetch --all
-        git config user.name "GitHub Actions Bot"
-        git config user.email "<>"
+      - name: checkout deploy branch
+        run: |
+          git fetch --all
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
 
-    - name: Set up Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        channel: 'stable'
-    - run: flutter --version
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+      - run: flutter --version
 
-    - name: Install dependencies
-      run: flutter pub get
+      - name: Install dependencies
+        run: flutter pub get
 
-    - name: Build web
-      run: flutter build web --base-href "/cat_mouse_tracker/"
+      - name: Build web
+        run: flutter build web --base-href "/cat_mouse_tracker/"
 
-    - name: Copy web build to docs folder
-      run: cp -r build/web docs/
-    
-    - name: Deploy
-      run: |
-        git add .
-        git commit -m "update github pages"
-        git push -f origin deploy
+
+      # - name: Upload artifact
+      #   # uses: actions/upload-artifact@v2
+      #   uses: actions/upload-pages-artifact
+      #   with:
+      #     name: github-pages
+      #     path: build/web
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: build/web
+
+      # - name: Copy web build to docs folder
+      #   run: cp -r build/web docs/
+
+      # - name: Deploy
+      #   run: |
+      #     git add .
+      #     git commit -m "update github pages"
+      #     git push -f origin deploy
+
+  # Deploy job
+  deploy:
+    # Add a dependency to the build job
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
