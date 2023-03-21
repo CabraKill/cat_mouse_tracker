@@ -2,23 +2,16 @@ name: Flutter Build and Deploy - Web
 
 on:
   push:
-    branches: [$default-branch]
+    branches: 
+    - $default-branch
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-# permissions:
-#   contents: read
-#   pages: write
-#   id-token: write
 
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  BUILD_PATH: "." # default value when not using subfolders
-  # BUILD_PATH: subfolder
 
 jobs:
   build:
@@ -47,27 +40,10 @@ jobs:
       - name: Build web
         run: flutter build web --base-href "/cat_mouse_tracker/"
 
-
-      # - name: Upload artifact
-      #   # uses: actions/upload-artifact@v2
-      #   uses: actions/upload-pages-artifact
-      #   with:
-      #     name: github-pages
-      #     path: build/web
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: build/web
-
-      # - name: Copy web build to docs folder
-      #   run: cp -r build/web docs/
-
-      # - name: Deploy
-      #   run: |
-      #     git add .
-      #     git commit -m "update github pages"
-      #     git push -f origin deploy
 
   # Deploy job
   deploy:
