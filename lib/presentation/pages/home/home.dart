@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      // floatingActionButton: const UserProfileFloatingButton(),
+      floatingActionButton: const UserProfileFloatingButton(),
     );
   }
 

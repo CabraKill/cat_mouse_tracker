@@ -9,7 +9,7 @@ A cat mouse tracker made with flutter for programming and rive for animations.
 This project is hosted in GitHub Pages. You can check it out [here](https://cabrakill.github.io/cat_mouse_tracker/).
 
 ## Github Actions ⏯️
-The project is configured to build and deploy the web version in GitHub Pages. The configuration is in the .github/workflows folder.
+The project is configured to build and deploy the web version in GitHub Pages, through Github Actions **Beta**. The configuration is in the .github/workflows folder.
 * [build web workflow](https://github.com/CabraKill/cat_mouse_tracker/actions/workflows/flutter-build-deploy.yml)
 
 ## Animation ✏️
